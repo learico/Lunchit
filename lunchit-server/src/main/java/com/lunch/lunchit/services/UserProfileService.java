@@ -11,8 +11,10 @@ import com.lunch.lunchit.dtos.UserProfileDto;
 public interface UserProfileService {
 
 
-	public void create(UserProfileCreateDto dto);
+	public void create(@Valid UserProfileCreateDto dto);
 
+	public void save(UserProfileCreateDto user);
+	
 	List<UserProfileCreateDto> findAll();
 	
 	public void update(Long id, UserProfileCreateDto dto);

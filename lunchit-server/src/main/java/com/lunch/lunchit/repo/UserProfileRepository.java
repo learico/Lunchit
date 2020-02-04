@@ -8,10 +8,6 @@ import com.lunch.lunchit.entities.UserProfile;
 
 public interface UserProfileRepository extends JpaRepository< UserProfile, Long>{
 
-	static void create(UserProfile user) {
-		
-		
-	}
 
 
 }
