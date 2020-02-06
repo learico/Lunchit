@@ -8,6 +8,7 @@ import com.lunch.lunchit.entities.UserProfile;
 
 public interface UserProfileRepository extends JpaRepository< UserProfile, Long>{
 
-
+	UserProfile getById(long id);
+	Optional<UserProfile> findByEmail (String email);
 
 }

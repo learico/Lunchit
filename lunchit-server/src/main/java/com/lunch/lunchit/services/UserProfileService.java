@@ -1,22 +1,26 @@
 package com.lunch.lunchit.services;
 
 
-import java.util.List;
-
 import javax.validation.Valid;
 
 import com.lunch.lunchit.dtos.UserProfileCreateDto;
 import com.lunch.lunchit.dtos.UserProfileDto;
+import com.lunch.lunchit.entities.UserProfile;
 
 public interface UserProfileService {
 
 
 	public void create(@Valid UserProfileCreateDto dto);
+	
+	public void update(Long id, UserProfileDto dto);
+	
+	public void delete (Long id);
+	
+	UserProfile getOne(Long id);
 
-	public void save(UserProfileCreateDto user);
 	
-	List<UserProfileCreateDto> findAll();
+	//List<UserProfileDto> getAll();
 	
-	public void update(Long id, UserProfileCreateDto dto);
+	//List<UserProfileCreateDto> findAll();
 }
 
