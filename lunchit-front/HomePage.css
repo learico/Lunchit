@@ -1,0 +1,18 @@
+
+        .navbar {
+            display: block;
+            padding: 25px;
+        }
+        .form-group {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+           
+        }
+        .title {
+            font-size: 25px;
+            color:black;
+            text-align: center;
+            text-transform: uppercase;
+           }
+

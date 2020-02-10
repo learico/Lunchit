@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+     
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="HomePage.css"/>
+    <meta charset="UTF-8">
+
+<title>Profile Creation Page</title>
+
+</head>
+
+<body>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <a class="navbar-brand" href="#">LUNCHIT</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                  <a  class="nav-link" href="HomePage.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a  class="nav-link active" href="ProfilePage.html">Profile</a>
+                </li>
+                <li class="nav-item">
+                  <a  class="nav-link" href="FindPage.html">Find</a>
+                </li>
+                <li class="nav-item">
+                  <a  class="nav-link" href="AdminPage.html">Admin</a>
+                </li>
+              </ul>
+            </div>
+      </nav>
+      </div>
+
+  <div>
+    <h1 class="title">Your Profile</h1><br>
+  </div>
+
+<form enctype="multipart/form-data" method="post" name="profileForm">     
+        <div class="form-group col-md-4">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" id="email" placeholder="Email ">
+            
+            <label for="firstname">Fristname</label>
+            <input type="text" class="form-control" id="firstname" placeholder="Firstname ">
+            
+            <label for="lastname">Lastname</label>
+            <input type="text" class="form-control" id="lastname" placeholder="Lastname">
+            
+            <label for="description">Description</label>
+            <input type="text" class="form-control" id="description" placeholder="...">
+           
+        </div>
+        
+        <div class="form-group col-md-4">
+            <label for="hobbies">Favorite hobbies</label>
+            <select type="text" class="form-control" id="hobbies" onkeyup="hobbies()" >
+                <option></option>
+            </select>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="culinaries">Favorite culinaries</label>
+            <select type="text" class="form-control" id="culinaries" onkeyup="food()" >
+            <option></option>
+            </select>
+        </div>
+             <div class="form-group" >
+             <button type="button" id="create">Submit</button>
+
+        </div>
+</form>
+<script>
+    
+        var button = document.getElementById('create');
+
+        button.onclick = () =>{
+        let email = document.getElementById('email').value;
+        let firstname = document.getElementById('firstname').value;
+        let lastname = document.getElementById('lastname').value;
+        let description = document.getElementById('description').value;
+       // let hobbies = document.getElementById('hobbies').value;
+        //let culinaries = document.getElementById('culinaries').value;
+
+        let url = 'http://localhost:8081/lunchitdb/users/create';
+
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', url, true);
+        xhr.setRequestHeader('Content-type','application/json');
+        let json = JSON.stringify({'email': email,'firstname': firstname, 'lastname': lastname, 'description': description })
+        xhr.send(json); 
+    }
+    
+  
+  </script>
+ 
+</body>
+</html>

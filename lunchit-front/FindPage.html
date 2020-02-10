@@ -1,0 +1,109 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+     
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="HomePage.css" />
+    <meta charset="UTF-8">
+
+<title>Find people</title>
+
+</head>
+
+<body>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <a class="navbar-brand" href="#">LUNCHIT</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                  <a  class="nav-link" href="HomePage.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a  class="nav-link active" href="ProfilePage.html">Profile</a>
+                </li>
+                <li class="nav-item">
+                  <a  class="nav-link" href="FindPage.html">Find</a>
+                </li>
+                <li class="nav-item">
+                  <a  class="nav-link" href="AdminPage.html">Admin</a>
+                </li>
+              </ul>
+            </div>
+      </nav>
+      </div>
+
+  <div>
+    <h1 class="title">Members</h1><br>
+  </div>
+
+<form enctype="multipart/form-data" method="get" name="fileform">     
+        
+        <div class="form-group col-md-4">
+            <label for="hobbies">Favorite hobbies</label>
+            <select type="text" class="form-control" id="hobbies" onkeyup="hobbies()" >
+                <option></option>
+            </select>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="culinaries">Favorite culinaries</label>
+            <select type="text" class="form-control" id="culinaries" onkeyup="food()" >
+            <option></option>
+            </select>
+        </div>
+             <div class="form-group" >
+             <button  type="button" onclick="create()">Submit</button>
+
+        </div>
+</form>
+<script>
+    function chooseCategories() {
+      let hobbies = document.getElementById('hobbies').value;
+     let culinaries= document.getElementById('culinaries').innerHTML = "";
+  
+      if(hobbies.length ) {
+        let url = 'http://localhost:8081/lunchit/categories/hobbies' + culinaries;
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.setRequestHeader('Content-type','application/json');
+        xhr.onreadystatechange = function () {
+          if(xhr.readyState === 4 && xhr.status === 200) {
+            let response = JSON.parse(xhr.response);
+
+            for(i=0; i < response.length; i++) {
+              let select = document.getElementById('hobbies');
+              let option = document.createElement('option');
+              option.innerHTML = response[i].name;
+              option.value = response[i].id;
+              select.appendChild(option);
+            }
+          }   
+        };
+        xhr.send();
+       }
+    }
+
+    function create() {
+        let email = document.getElementById('email').value;
+        let firstname = document.getElementById('firstname').value;
+        let Lastname = document.getElementById('Lastname').value;
+        let description = document.getElementById('description').value;
+        let hobbies = document.getElementById('hobbies').value;
+        let culinaries = document.getElementById('culinaries').value;
+
+        let url = 'http://localhost:8081/lunchit/users/create/';
+
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', url, true);
+        xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+        let json = JSON.stringify({'firstname': firstname, 'Lastname': Lastname, 'description': description, 'hobbies': hobbies, 'culinaries':culinaries })
+        xhr.send(json); 
+    }
+  
+  </script>
+ 
+</body>
+</html> -->
