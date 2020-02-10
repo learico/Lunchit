@@ -23,10 +23,6 @@ public class UserProfileDto {
 	 	private String email;
 	 	
 	 	@NotBlank(message = "{E_NOT_BLANK}")
-	 	@Size(min = 7)
-	 	private String password;
-	 	
-	 	@NotBlank(message = "{E_NOT_BLANK}")
 	   	@Size(max = 255)
 	    private String lastname;
 	 	
@@ -62,13 +58,6 @@ public class UserProfileDto {
 			this.email = email;
 		}
 
-		public String getPassword() {
-			return password;
-		}
-
-		public void setPassword(String password) {
-			this.password = password;
-		}
 
 		public String getLastname() {
 			return lastname;
@@ -104,7 +93,7 @@ public class UserProfileDto {
 
 		@Override
 		public String toString() {
-			return "UserProfileDto [id=" + id + ", email=" + email + ", password=" + password + ", lastname=" + lastname
+			return "UserProfileDto [id=" + id + ", email=" + email + ", lastname=" + lastname
 					+ ", firstname=" + firstname + ", description=" + description + ", picture=" + picture + "]";
 		}	    
 	

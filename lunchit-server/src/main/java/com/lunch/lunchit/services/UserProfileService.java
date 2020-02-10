@@ -1,16 +1,16 @@
 package com.lunch.lunchit.services;
 
 
-import javax.validation.Valid;
+import java.util.List;
 
-import com.lunch.lunchit.dtos.UserProfileCreateDto;
+import javax.validation.Valid;
 import com.lunch.lunchit.dtos.UserProfileDto;
 import com.lunch.lunchit.entities.UserProfile;
 
 public interface UserProfileService {
 
 
-	public void create(@Valid UserProfileCreateDto dto);
+	public void create(@Valid UserProfileDto dto);
 	
 	public void update(Long id, UserProfileDto dto);
 	
@@ -18,9 +18,8 @@ public interface UserProfileService {
 	
 	UserProfile getOne(Long id);
 
+	List<UserProfileDto> findAllByEmail(String inputs);
+
 	
-	//List<UserProfileDto> getAll();
-	
-	//List<UserProfileCreateDto> findAll();
 }
 

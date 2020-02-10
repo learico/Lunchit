@@ -26,9 +26,6 @@ public class UserProfile {
 			@Column(name = "email", length = 320, nullable=false)
 			private String email;
 			
-			@Column(name = "password", nullable=false)
-			private String password;
-			
 			@Column(name = "firstname",length = 255, nullable=false)
 			private String firstname;
 			
@@ -42,39 +39,27 @@ public class UserProfile {
 			private String picture;
 			
 			
-			@Column(nullable = false, length = 20)
+			@Column(length = 20)
 			@Enumerated(EnumType.STRING)
 			private Role role = Role.ROLE_USER;
 			
 			
 			public UserProfile() {
 				super();
-					// TODO Auto-generated constructor stub
-			}
+				}
 			
 			
 			public Long getId() {
 				return id;
 			}
-
 			public void setId(Long id) {
 				this.id = id;
 			}
-
 			public String getEmail() {
 				return email;
 			}
-
 			public void setEmail(String email) {
 				this.email = email;
-			}
-
-			public String getPassword() {
-				return password;
-			}
-
-			public void setPassword(String password) {
-				this.password = password;
 			}
 
 			public String getFirstname() {
